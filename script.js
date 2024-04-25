@@ -18,6 +18,7 @@ function updateNumber(n) {
 }
 function updateOperator(op) {
     prevVal = currentVal;
+    operator = op;
     currentVal = op;
     updateDisplay();
 }
@@ -42,3 +43,20 @@ op.forEach((items) => {
 
 
 });
+function calculator(num1, num2, action) {
+    switch (action) {
+
+        case '+':
+            return parseInt(num1) + parseInt(num2);
+        case '-':
+            return parseInt(num1) - parseInt(num2);
+        case 'x':
+            return parseInt(num1) * parseInt(num2);
+        case '/':
+            return parseInt(num1) / parseInt(num2);
+
+
+    }
+
+
+}
