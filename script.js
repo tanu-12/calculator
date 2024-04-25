@@ -13,17 +13,32 @@ currentVal = 0;
 operator = "";
 function updateNumber(n) {
     currentVal = n;
+    updateDisplay();
+
+}
+function updateOperator(op) {
+    prevVal = currentVal;
+    currentVal = op;
+    updateDisplay();
+}
+function updateDisplay() {
     displayVal.textContent += currentVal;
     cV.textContent = currentVal;
+
 }
 
 nums.forEach((item) => {
     item.addEventListener("click", function (e) {
         console.log("number was clicked!!!!");
         updateNumber(e.target.textContent);
-
-
-
     });
 });
+op.forEach((items) => {
+    items.addEventListener("click", function (e) {
 
+        console.log("you clicked a operator!!");
+        updateOperator(e.target.textContent);
+    });
+
+
+});
