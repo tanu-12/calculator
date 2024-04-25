@@ -36,7 +36,7 @@ nums.forEach((item) => {
 op.forEach((items) => {
     items.addEventListener("click", function (e) {
 
-        console.log("you clicked a operator!!");
+        console.log("you clicked an operator!!");
         updateOperator(e.target.textContent);
     });
 
