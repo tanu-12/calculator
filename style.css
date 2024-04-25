@@ -1,0 +1,39 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    text-align: center;
+}
+
+.calculator {
+
+    margin: 10px auto;
+    width: 80%;
+    display: flex;
+    justify-content: center;
+
+}
+
+.display_ {
+    text-align: center;
+}
+
+main {
+    width: 100%;
+
+}
+
+.key_input {
+    width: 100%;
+
+
+}
+
+.row {
+    display: grid;
+    grid-template-columns: 20px 20px 20px 20px;
+    justify-content: center;
+    grid-gap: 5px;
+    padding: 1rem;
+}
