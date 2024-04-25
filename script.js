@@ -31,6 +31,7 @@ function updateDisplay() {
 nums.forEach((item) => {
     item.addEventListener("click", function (e) {
         console.log("number was clicked!!!!");
+
         updateNumber(e.target.textContent);
     });
 });
@@ -57,6 +58,8 @@ function calculator(num1, num2, action) {
 
 
     }
-
-
 }
+equal.addEventListener("click", function () {
+    console.log(calculator(prevVal, currentVal, operator));
+
+});
