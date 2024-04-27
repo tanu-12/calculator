@@ -6,11 +6,24 @@ const equal = document.querySelector(".equals");
 console.log(equal);
 const displayVal = document.querySelector(".displayVal");
 const cV = document.querySelector(".currentVal");
+const dot = document.querySelector(".dot");
+const clear = document.querySelector(".clear");
 let operator, prevVal, currentVal, displayContent;
 
 prevVal = 0;
 currentVal = 0;
 operator = "";
+
+clear.addEventListener("click", () => {
+
+    prevVal = 0;
+    currentVal = "";
+    operator = "";
+    displayVal.textContent = "";
+    cV.textContent = "";
+
+
+});
 
 function updateNumber(n) {
     if (currentVal != '0' && currentVal != operator)
@@ -56,17 +69,23 @@ op.forEach((items) => {
 
 function multiply(n1, n2) {
 
-    return Math.round(parseFloat(n1) * parseFloat(n2));
+    let m = (parseFloat(n1) * parseFloat(n2));
+    console.log(m);
+    return roundUp(m);
 
 
 }
+
+
 function divide(n1, n2) {
     if (n2 == 0) {
         displayVal.textContent = "Cannot divide with 0";
-        cV.textContent = "Cannot divide with 0";
+        // cV.textContent = "Cannot divide with 0";
+        return "Cannot divide with 0";
     }
 
-    return Math.round(parseFloat(n1) / parseFloat(n2));
+    let d = (parseFloat(n1) / parseFloat(n2));
+    return roundUp(d);
 
 
 }
@@ -90,6 +109,29 @@ function operate(num1, num2, action) {
 
     }
     return r;
+}
+dot.addEventListener("click", function (e) {
+    console.log("dot clickedd");
+    if (currentVal.includes(".")) {
+        return;
+    }
+    else
+        currentVal += e.target.textContent;
+    updateDisplay(e.target.textContent);
+
+})
+function roundUp(n) {
+    let number = n.toString();
+    if (number.includes(".")) {
+        let decimalN = n.toString().split('.')[1].length;
+
+        if (decimalN < 5)
+            return n;
+        else
+            return Math.round(n);
+
+    }
+    return n;
 }
 equal.addEventListener("click", function () {
     let r = (operate(prevVal, currentVal, operator));
