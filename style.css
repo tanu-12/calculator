@@ -88,14 +88,18 @@ body {
 
 }
 
-.display_ {
-    text-align: center;
-}
-
 main {
     width: 100%;
 
 }
+
+.display_ {
+
+    text-align: right;
+    width: 55%;
+}
+
+
 
 .key_input {
     width: 100%;
