@@ -6,24 +6,33 @@ const equal = document.querySelector(".equals");
 console.log(equal);
 const displayVal = document.querySelector(".displayVal");
 const cV = document.querySelector(".currentVal");
-let operator, prevVal, currentVal;
+let operator, prevVal, currentVal, displayContent;
 
 prevVal = 0;
 currentVal = 0;
 operator = "";
+
 function updateNumber(n) {
-    currentVal = n;
-    updateDisplay();
+    if (currentVal != '0' && currentVal != operator)
+        currentVal += n;
+    else
+        currentVal = n;
+
+    updateDisplay(n);
 
 }
 function updateOperator(op) {
+    if ((prevVal != 0) && (currentVal != 0)) {
+        currentVal = (calculator(prevVal, currentVal, operator));
+        console.log(currentVal);
+    }
     prevVal = currentVal;
     operator = op;
     currentVal = op;
-    updateDisplay();
+    updateDisplay(op);
 }
-function updateDisplay() {
-    displayVal.textContent += currentVal;
+function updateDisplay(n) {
+    displayVal.textContent += n;
     cV.textContent = currentVal;
 
 }
@@ -45,21 +54,28 @@ op.forEach((items) => {
 
 });
 function calculator(num1, num2, action) {
+    let r = 0;
     switch (action) {
 
         case '+':
-            return parseInt(num1) + parseInt(num2);
+            r = parseInt(num1) + parseInt(num2);
+            break;
         case '-':
-            return parseInt(num1) - parseInt(num2);
-        case 'x':
-            return parseInt(num1) * parseInt(num2);
+            r = parseInt(num1) - parseInt(num2);
+            break;
+        case 'X':
+            r = parseInt(num1) * parseInt(num2);
+            break;
         case '/':
-            return parseInt(num1) / parseInt(num2);
+            r = parseInt(num1) / parseInt(num2);
+            break;
 
 
     }
+    return r;
 }
 equal.addEventListener("click", function () {
-    console.log(calculator(prevVal, currentVal, operator));
+    let r = (calculator(prevVal, currentVal, operator));
+    cV.textContent = r;
 
 });
