@@ -23,7 +23,7 @@ function updateNumber(n) {
 }
 function updateOperator(op) {
     if ((prevVal != 0) && (currentVal != 0)) {
-        currentVal = (calculator(prevVal, currentVal, operator));
+        currentVal = (operate(prevVal, currentVal, operator));
         console.log(currentVal);
     }
     prevVal = currentVal;
@@ -53,7 +53,7 @@ op.forEach((items) => {
 
 
 });
-function calculator(num1, num2, action) {
+function operate(num1, num2, action) {
     let r = 0;
     switch (action) {
 
@@ -75,7 +75,7 @@ function calculator(num1, num2, action) {
     return r;
 }
 equal.addEventListener("click", function () {
-    let r = (calculator(prevVal, currentVal, operator));
+    let r = (operate(prevVal, currentVal, operator));
     cV.textContent = r;
 
 });
