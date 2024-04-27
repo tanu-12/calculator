@@ -125,7 +125,7 @@ function roundUp(n) {
     if (number.includes(".")) {
         let decimalN = n.toString().split('.')[1].length;
 
-        if (decimalN < 5)
+        if (decimalN < 10)
             return n;
         else
             return Math.round(n);
