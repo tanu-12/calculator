@@ -53,21 +53,38 @@ op.forEach((items) => {
 
 
 });
+
+function multiply(n1, n2) {
+
+    return Math.round(parseFloat(n1) * parseFloat(n2));
+
+
+}
+function divide(n1, n2) {
+    if (n2 == 0) {
+        displayVal.textContent = "Cannot divide with 0";
+        cV.textContent = "Cannot divide with 0";
+    }
+
+    return Math.round(parseFloat(n1) / parseFloat(n2));
+
+
+}
 function operate(num1, num2, action) {
     let r = 0;
     switch (action) {
 
         case '+':
-            r = parseInt(num1) + parseInt(num2);
+            r = parseFloat(num1) + parseFloat(num2);
             break;
         case '-':
-            r = parseInt(num1) - parseInt(num2);
+            r = parseFloat(num1) - parseFloat(num2);
             break;
         case 'X':
-            r = parseInt(num1) * parseInt(num2);
+            r = multiply(num1, num2);
             break;
         case '/':
-            r = parseInt(num1) / parseInt(num2);
+            r = divide(num1, num2);
             break;
 
 
