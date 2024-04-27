@@ -8,6 +8,7 @@ const displayVal = document.querySelector(".displayVal");
 const cV = document.querySelector(".currentVal");
 const dot = document.querySelector(".dot");
 const clear = document.querySelector(".clear");
+const backSpace = document.querySelector(".backSpace");
 let operator, prevVal, currentVal, displayContent;
 
 prevVal = 0;
@@ -136,5 +137,17 @@ function roundUp(n) {
 equal.addEventListener("click", function () {
     let r = (operate(prevVal, currentVal, operator));
     cV.textContent = r;
+
+});
+backSpace.addEventListener("click", function () {
+    console.log("clicked back space");
+    if (currentVal != '0' && currentVal != operator) {
+        currentVal = currentVal.slice(0, -1);
+        displayVal.textContent = displayVal.textContent.slice(0, -1);
+        cV.textContent = currentVal;
+    }
+    else return;
+
+
 
 });
