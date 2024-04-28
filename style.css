@@ -85,18 +85,18 @@ body {
 
 }
 
-/* .calculator {
+.calculator {
 
     margin: 10px auto;
 
     display: flex;
     justify-content: center;
-    border: 2px solid black;
+    /* border: 2px solid black; */
 
-} */
+}
 
-.calculator {
-    width: 40%;
+main {
+
 
     display: flex;
     justify-content: center;
