@@ -82,21 +82,24 @@ body {
 .calculator {
 
     margin: 10px auto;
-    width: 80%;
+
     display: flex;
     justify-content: center;
 
 }
 
 main {
-    width: 100%;
+
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
 
 }
 
 .display_ {
 
     text-align: right;
-    width: 55%;
+
 }
 
 
@@ -111,7 +114,7 @@ main {
     display: grid;
     grid-template-columns: 20px 20px 20px 20px;
     justify-content: center;
-    grid-gap: 10px;
+    grid-gap: 2.5rem;
     padding: 1rem;
 
 }
