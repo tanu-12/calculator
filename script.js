@@ -20,8 +20,8 @@ clear.addEventListener("click", () => {
     prevVal = 0;
     currentVal = "";
     operator = "";
-    displayVal.textContent = "";
-    cV.textContent = "";
+    displayVal.textContent = "      ";
+    cV.textContent = "    ";
 
 
 });
@@ -46,6 +46,9 @@ function updateOperator(op) {
     updateDisplay(op);
 }
 function updateDisplay(n) {
+    if (displayVal.textContent === "") {
+        displayVal.textContent = n;
+    }
     displayVal.textContent += n;
     cV.textContent = currentVal;
 
